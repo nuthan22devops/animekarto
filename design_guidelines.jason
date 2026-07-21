@@ -1,0 +1,113 @@
+
+Action: file_editor view /app/design_guidelines.json
+Observation: [Showing lines 1-109 of 109 total] /app/design_guidelines.json:
+1|{
+2|  "theme": "light",
+3|  "typography": {
+4|    "headings": {
+5|      "family": "Anton, sans-serif",
+6|      "weights": ["400"],
+7|      "description": "Massive, blocky, graphic novel style. Never center by default. Use uppercase for extra impact."
+8|    },
+9|    "body": {
+10|      "family": "Manrope, sans-serif",
+11|      "weights": ["400", "500", "700"],
+12|      "description": "Clean, highly legible geometric sans to contrast the heavy headings."
+13|    },
+14|    "labels": {
+15|      "family": "IBM Plex Mono, monospace",
+16|      "weights": ["600"],
+17|      "description": "Used for overlines, small badges, and technical details. Uppercase with wide tracking."
+18|    }
+19|  },
+20|  "colors": {
+21|    "background": "#FFFFFF",
+22|    "surface": "#F4F4F0",
+23|    "border": "#0A0A0A",
+24|    "text": "#0A0A0A",
+25|    "text_muted": "#555555",
+26|    "primary": "#FF2A2A",
+27|    "primary_foreground": "#FFFFFF",
+28|    "accent": "#FFD700",
+29|    "accent_foreground": "#0A0A0A",
+30|    "rules": "High contrast Swiss-Brutalist Manga style. NO gradients. Use flat solid colors."
+31|  },
+32|  "visual_enhancers": {
+33|    "shadows": "Hard drop shadows instead of soft blurs. Example: `shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`.",
+34|    "borders": "Thick solid black borders (`border-2 border-black` or `border-b-4`) to separate sections, like comic panels.",
+35|    "textures": "Use CSS halftone dot patterns for section backgrounds or empty space to emulate printed manga paper.",
+36|    "corners": "Sharp edges. Use `rounded-none` to keep the brutalist/printed feel.",
+37|    "hover_states": "Interactive elements should translate up/left (`-translate-y-1 -translate-x-1`) and increase the hard shadow spread."
+38|  },
+39|  "layouts": {
+40|    "grid": "Bento 'Manga Panel' Grid. Asymmetrical grid structures with thick gaps/borders.",
+41|    "spacing": "Generous inner padding (`p-6` to `p-12`) inside bordered containers. Tight optical alignment for nested text.",
+42|    "navigation": "Sticky, solid white background with a hard bottom border (`border-b-2 border-black`). NO transparent headers.",
+43|    "hero": "Asymmetrical layout. Large bold typography overlaying or adjacent to vibrant Japanese street/anime imagery."
+44|  },
+45|  "components": {
+46|    "Button": "Solid background, thick black border, hard shadow. On hover: invert colors or slide shadow. Example classes: `bg-primary text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all`.",
+47|    "Card": "Product cards must have `border-2 border-black` and a strong boundary. Images fill the top portion with a hard bottom border separating the image from the text. Use sharp square corners.",
+48|    "Badge": "Solid yellow (`bg-[#FFD700]`), black text, `border-2 border-black`, mono font.",
+49|    "Marquee": "Use `react-fast-marquee` for an 'Editorial Ribbon' or 'Kinetic Texture' separating major sections with text like '✦ NEW ARRIVALS ✦ LIMITED EDITION'."
+50|  },
+51|  "motion": {
+52|    "transitions": "Snappy, fast transitions. Use `duration-150` or `duration-200` with `ease-out`. Avoid sluggish slow fades.",
+53|    "interactions": "Hover states must be obvious. Click states should 'press down' (remove shadow, translate to 0,0)."
+54|  },
+55|  "image_urls": {
+56|    "hero_atmosphere": [
+57|      {
+58|        "url": "https://images.pexels.com/photos/1510610/pexels-photo-1510610.jpeg",
+59|        "description": "Neon Tokyo street at night, used for atmospheric backgrounds or hero section to establish the otaku culture vibe.",
+60|        "category": "Hero / Background"
+61|      }
+62|    ],
+63|    "category_thumbnails": [
+64|      {
+65|        "url": "https://images.pexels.com/photos/34956928/pexels-photo-34956928.jpeg",
+66|        "description": "Anime action figure with dynamic pose.",
+67|        "category": "Figures Category"
+68|      },
+69|      {
+70|        "url": "https://images.pexels.com/photos/36025541/pexels-photo-36025541.jpeg",
+71|        "description": "Streetwear clothing on hangers.",
+72|        "category": "Apparel Category"
+73|      },
+74|      {
+75|        "url": "https://images.pexels.com/photos/18848524/pexels-photo-18848524.jpeg",
+76|        "description": "Shelves filled with Japanese manga.",
+77|        "category": "Manga Category"
+78|      },
+79|      {
+80|        "url": "https://images.unsplash.com/photo-1755756383664-af3cf523242b",
+81|        "description": "Building with large anime billboards in a city.",
+82|        "category": "Posters Category"
+83|      }
+84|    ]
+85|  },
+86|  "universal_guidelines_for_main_agent": [
+87|    "NEVER use generic centered layouts, simplistic gradients, and uniform styling.",
+88|    "Do not use generic soft shadows. MUST use hard solid shadows for the manga aesthetic.",
+89|    "DO NOT apply universal transition (e.g., `transition: all`). Use specific transitions like `transition-transform` or `transition-colors`.",
+90|    "DO NOT center align the app container. Left-align dense text for readability.",
+91|    "ALWAYS explicitly set text color on hover.",
+92|    "Every interaction needs micro-animations - hover states, press states.",
+93|    "NEVER use placeholder text for images. Use the provided image URLs.",
+94|    "Implement a CSS halftone background utility class (e.g., using a radial-gradient background) for decorative panel backgrounds.",
+95|    "All interactive elements MUST include a `data-testid` attribute (e.g., `data-testid=\"add-to-cart-button\"`).",
+96|    "Use Shadcn/ui for complex interactive components (Select, Dialog, Form) but strip the default Vercel look and apply the Brutalist/Manga borders and shadows.",
+97|    "Follow GENERAL UI UX DESIGN GUIDELINES: Maintain clear visual hierarchy, provide immediate feedback on actions, and ensure seamless navigation."
+98|  ],
+99|  "accessibility": {
+100|    "contrast": "Maintain high contrast ratios. Black text on white or yellow, white text on black or red. Never use gray-on-gray.",
+101|    "focus": "Focus states must have a highly visible `outline-2 outline-offset-2 outline-primary`.",
+102|    "motion": "Respect `prefers-reduced-motion` for marquee and hover animations."
+103|  },
+104|  "dependencies_to_add": [
+105|    "react-fast-marquee",
+106|    "lucide-react",
+107|    "framer-motion"
+108|  ]
+109|}
+[End of file]
